@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGGS PIZZA - Neo Cyber Pizzeria</title>
+    <style>
+        /* Previous CSS remains the same */
+        :root {
+            --neon-cyan: #0ff;
+            --neon-pink: #f0f;
+            --matrix-green: #0f0;
+            --cyber-black: #00010a;
+            --grid-color: rgba(0, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            background: var(--cyber-black);
+            font-family: 'Courier New', monospace;
+            color: var(--neon-cyan);
+            overflow-x: hidden;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            background:
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(180deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridScroll 40s linear infinite;
+            transform: rotate(45deg);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        @keyframes glitch-1 {
+    0% { clip-path: inset(20% 0 30% 0); }
+    100% { clip-path: inset(10% 0 40% 0); }
+}
+
+        .floating-pizza {
+            position: absolute;
+            width: var(--size);
+            height: var(--size);
+            background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="%230ff" stroke-width="3" stroke-dasharray="5 5"/><path d="M30,30 Q50,20 70,30 L50,70 Z" fill="%23f0f" opacity="0.8"/></svg>');
+            left: var(--x);
+            top: var(--y);
+            animation: float 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px var(--neon-pink));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .cyber-nav {
+            position: fixed;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 1, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-glitch {
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            color: var(--neon-cyan);
+            margin-left: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-right: 1rem;
+        }
+
+        .cyber-button {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border: 2px solid var(--neon-cyan);
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .cyber-button:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 4rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 2rem;
+            background: rgba(0, 1, 10, 0.7);
+            margin-top: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            max-width: 300px;
+            padding: 1rem;
+            border: 2px solid var(--neon-pink);
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            box-shadow: 0 0 20px var(--neon-pink);
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            color: var(--neon-pink);
+            margin-bottom: 1rem;
+        }
+
+        .cyber-footer {
+            background: rgba(0, 1, 10, 0.9);
+            padding: 2rem;
+            text-align: center;
+            color: var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyber Grid Background -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Floating Pizza Elements -->
+    <div class="floating-pizza" style="--x:10%; --y:20%; --size:8vw"></div>
+    <div class="floating-pizza" style="--x:80%; --y:70%; --size:12vw"></div>
+    
+    <!-- Main Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-glitch" data-text="BIGGS_PIZZA">BIGGS_PIZZA</div>
+        <div class="nav-links">
+            <a href="index.html" class="cyber-button">HOME</a>
+            <a href="menu.html" class="cyber-button">MENU</a>
+            <a href="features.html" class="cyber-button">FEATURES</a>
+            <a href="contact.html" class="cyber-button">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="hologram-overlay"></div>
+        <div class="hero-content">
+            <h1 class="cyber-title">
+                <span class="cyber-text" data-text="PIZZA_OS_2.0">PIZZA_OS_2.0</span>
+                <span class="terminal-text">INITIALIZING...</span>
+            </h1>
+            <div class="cyber-loader"></div>
+            <style>
+                /* Keep all previous CSS styles */
+                .cyber-button-xl {
+                    position: relative;
+                    padding: 20px 40px;
+                    background: #000;
+                    border: 2px solid #0ff;
+                    color: #0ff;
+                    font-family: 'Courier New', monospace;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    overflow: hidden;
+                }
+                
+                .cyber-button-xl:hover {
+                    background: #112;
+                    box-shadow: 0 0 10px #0ff;
+                }
+                
+                .button-hover {
+                    margin-right: 10px;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                
+                .cyber-button-xl:hover .button-hover {
+                    opacity: 1;
+                }
+                
+                .cyber-button-xl:active {
+                    transform: scale(0.95);
+                    box-shadow: 0 0 20px #0ff;
+                }
+                
+                @keyframes clickEffect {
+                    from { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); }
+                    to { box-shadow: 0 0 0 10px rgba(0, 255, 255, 0); }
+                }
+                
+                .active-click {
+                    animation: clickEffect 0.5s;
+                }
+                </style>
+                
+                <button class="cyber-button-xl" id="bootButton">
+                    <span class="button-hover">>>>_</span>LAUNCH_ORDER
+                </button>
+                
+                <script>
+                document.getElementById('bootButton').addEventListener('click', function() {
+                    // Add visual feedback
+                    this.classList.add('active-click');
+                    
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        this.classList.remove('active-click');
+                    }, 500);
+                
+                    // Change button text during loading
+                    const originalText = this.innerHTML;
+                    this.querySelector('.button-hover').textContent = 'ACCESSING';
+                    
+                    // Open new page after animation delay
+                    setTimeout(() => {
+                        // Replace this URL with your desired destination
+                        window.location.href = 'menu.html';
+                        
+                        // Alternatively open in new tab using:
+                        // window.open('https://www.example.com', '_blank');
+                    }, 1500);
+                });
+                </script>
+        </div>
+    </main>
+
+    <!-- Feature Section -->
+    <section id="features" class="feature-section">
+        <div class="feature">
+            <div class="feature-icon">&lt;/&gt;</div>
+            <h2 class="feature-title">CUSTOM PIZZA ALGORITHM</h2>
+            <p>Design your perfect pizza with our neural network-powered customization engine.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">{*}</div>
+            <h2 class="feature-title">QUANTUM DELIVERY</h2>
+            <p>Instant pizza teleportation technology ensures your meal arrives before you order it.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">&amp;</div>
+            <h2 class="feature-title">CRYPTO TOPPINGS</h2>
+            <p>Pay with digital currencies and unlock exclusive cyber-enhanced pizza configurations.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <p>© 2075 BIGGS PIZZA NETWORKS | ALL RIGHTS DIGITIZED</p>
+    </footer>
+</body>
+</html>
